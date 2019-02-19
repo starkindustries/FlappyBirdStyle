@@ -9,6 +9,7 @@ public class GameControl : MonoBehaviour
     public static GameControl instance;
     public GameObject gameOverText;
     public bool gameOver = false;
+    public float scrollSpeed = -1.5f; // the 'f' means float
 
     // Start is called before the first frame update
     private void Awake()
