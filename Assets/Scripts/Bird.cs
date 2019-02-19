@@ -22,13 +22,25 @@ public class Bird : MonoBehaviour
     {
         if (isDead == false)
         {
+            foreach(Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    flap();
+                }
+            }
             if (Input.GetMouseButtonDown(0)) // left mouse button
             {
-                rb2d.velocity = Vector2.zero;
-                rb2d.AddForce(new Vector2(0, upForce));
-                anim.SetTrigger("Flap");
+                flap();
             }
         }
+    }
+
+    private void flap()
+    {
+        rb2d.velocity = Vector2.zero;
+        rb2d.AddForce(new Vector2(0, upForce));
+        anim.SetTrigger("Flap");
     }
 
     private void FixedUpdate()
